@@ -2,6 +2,7 @@ package com.food.service;
 
 import com.food.dto.OrderRequest;
 import com.food.dto.OrderResponse;
+import com.food.exception.FoodNotFoundException;
 import com.food.model.Food;
 import com.food.model.Order;
 import com.food.repository.FoodRepository;
@@ -21,7 +22,7 @@ public class OrderService {
     public OrderResponse placeOrder(OrderRequest request){
 
         Food food = foodRepository.findById(request.getFood_id())
-                .orElseThrow(() -> new RuntimeException("Food not found"));
+                .orElseThrow(() -> new FoodNotFoundException("Food not found"));
 
         double total = food.getPrice() * request.getQuantity();
 
