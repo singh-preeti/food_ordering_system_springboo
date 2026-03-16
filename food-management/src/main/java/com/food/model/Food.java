@@ -2,6 +2,8 @@ package com.food.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Food {
@@ -9,9 +11,13 @@ public class Food {
     @Id
     private int food_id;
 
+
+    @NotBlank(message = "Food name cannot be empty")
     private String foodName;
 
+    @Min(value = 1, message = "Price must be greater than 0")
     private double price;
+
 
     public Food() {
     }

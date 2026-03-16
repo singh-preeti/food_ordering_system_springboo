@@ -3,6 +3,7 @@ package com.food.controller;
 
 import com.food.model.Food;
 import com.food.repository.FoodRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +17,12 @@ public class FoodController {
     private FoodRepository foodRepository;
 
     // Add Food
+//    @PostMapping("/add")
+//    public Food addFood(@RequestBody Food food) {
+//        return foodRepository.save(food);
+//    }
     @PostMapping("/add")
-    public Food addFood(@RequestBody Food food) {
+    public Food addFood(@Valid @RequestBody Food food){
         return foodRepository.save(food);
     }
 
