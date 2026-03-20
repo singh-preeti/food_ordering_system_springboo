@@ -7,7 +7,7 @@ public class Restaurant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int restaurant_id;
 
     private String name;
     private String address;
@@ -15,18 +15,18 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(int id, String name, String address) {
-        this.id = id;
-        this.name = name;
+    public Restaurant(String address, String name, int restaurant_id) {
         this.address = address;
+        this.name = name;
+        this.restaurant_id = restaurant_id;
     }
 
-    public int getId() {
-        return id;
+    public String getAddress() {
+        return address;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getName() {
@@ -37,11 +37,11 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public int getRestaurant_id() {
+        return restaurant_id;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setRestaurant_id(int restaurant_id) {
+        this.restaurant_id = restaurant_id;
     }
 }
